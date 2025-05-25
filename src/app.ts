@@ -1,15 +1,15 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
+import { StudentRoutes } from './app/module/student/student.route';
 const app = express();
 
 // parser
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req: Request, res: Response) => {
-  const a = 10;
 
-  res.send(a);
-});
+// application routes
+
+app.use('/api/v1/students', StudentRoutes)
 
 export default app;
